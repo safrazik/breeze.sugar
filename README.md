@@ -1,7 +1,7 @@
 breeze.sugar
 ============
 
-Syntax sugar ([Mongo DB style queries](http://docs.mongodb.org/manual/tutorial/query-documents/)) for breeze js
+Syntax sugar ([Mongo DB style queries](http://docs.mongodb.org/manual/tutorial/query-documents/)) for [breeze js](http://www.breezejs.com/)
 
 Usage
 -----
