@@ -42,10 +42,10 @@ define(['breeze'], function(breeze){
       }
       return predicates;
     }
-    self.createQuery = function(from, criteria, options) {
+    self.createQuery = function(resourceName, criteria, options) {
       options = options || {};
       var where = Predicate.and(self.getPredicates(criteria));
-      var query = new EntityQuery().from(from)
+      var query = new EntityQuery().from(resourceName)
               .where(where);
       if (options.sort) {
         var orderBy = [];
@@ -82,7 +82,5 @@ define(['breeze'], function(breeze){
       return query;
     }
   };
-  return {
-    SugarQuery: SugarQuery
-  };
+  return new SugarQuery();
 });
