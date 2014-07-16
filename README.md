@@ -31,7 +31,7 @@ var query = new breeze.EntityQuery().from('Customers').where(
     )
   )
 )
-.limit(10)
+.top(10)
 .skip(5)
 .orderBy('name desc');
 ```
