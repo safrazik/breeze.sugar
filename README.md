@@ -7,7 +7,8 @@ API
 ---
 
 ```javascript
-createQuery(resourceName [, criteria [, options ]])
+breeze.EntityQuery createQuery(resourceName [, criteria [, options ]])
+breeze.Predicate[] getPredicates(criteria)
 ```
 
 Usage
