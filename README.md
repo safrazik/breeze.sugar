@@ -23,7 +23,9 @@ var query = sugar.createQuery('Customers', {
       ],
     },
     {limit: 10, skip: 5, sort: {
-        name: -1
+      name: -1
+    }, expand: {
+      country: true
     }});
 ```
 
@@ -41,5 +43,6 @@ var query = new breeze.EntityQuery().from('Customers').where(
 )
 .top(10)
 .skip(5)
-.orderBy('name desc');
+.orderBy('name desc')
+.expand('country');
 ```
