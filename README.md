@@ -6,10 +6,29 @@ Syntax sugar ([Mongo DB style queries](http://docs.mongodb.org/manual/tutorial/q
 API
 ---
 
-```javascript
-breeze.EntityQuery createQuery(resourceName [, criteria [, options ]])
-breeze.Predicate[] getPredicates(criteria)
 ```
+createQuery(resourceName [, criteria [, options ]])
+```
+
+Create an EntityQuery in mongodb style
+
+### Arguments
+- `resourceName` String
+   entityType's resource name to query from
+- `criteria` Object
+   Mongodb style query criteria
+- `options` Object
+   - `sort` Object
+      Sort order
+   - `skip` Number
+      Number of results to skip at the beginning
+   - `limit` Number
+      Maximum number of results to return
+   - `expand` Object
+      The navigation properties to expand
+
+### Returns
+[breeze.EntityQuery](http://www.breezejs.com/sites/all/apidocs/classes/EntityQuery.html)
 
 Usage
 -----
