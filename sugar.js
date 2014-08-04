@@ -29,7 +29,7 @@ define(['breeze'], function(breeze){
               predicates.push(Predicate[operator](predicatesInner));
               continue;
           }
-          if (typeof value === "object") {
+          if (value && typeof value === "object") {
               var keys = Object.keys(value);
               operator = keys[0];
               value = value[operator];
