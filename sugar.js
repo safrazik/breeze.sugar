@@ -104,4 +104,4 @@
     }
   };
   return new SugarQuery();
-});
+}));
