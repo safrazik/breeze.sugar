@@ -13,14 +13,16 @@ define(['breeze'], function(breeze){
       if(!criteria){
         return predicates;
       }
-      var propName, operator, value;
+      var propName, $operator, operator, value;
       for (var key in criteria) {
           if (key == '__full__' || key == '__observable__') {
               continue;
           }
           propName = key;
           value = criteria[key];
-          operator = self.prepareOperator(key);
+        
+          var $operator = key;
+          operator = self.prepareOperator($operator);
           if (operator == 'or' || operator == 'and') {
               var predicatesInner = [];
               for (var i = 0; i < value.length; i++) {
@@ -31,12 +33,20 @@ define(['breeze'], function(breeze){
           }
           if (value && typeof value === "object") {
               var keys = Object.keys(value);
-              operator = keys[0];
-              value = value[operator];
-              operator = self.prepareOperator(operator);
+              $operator = keys[0];
+              value = value[$operator];
+              operator = self.prepareOperator($operator);
           }
           else {
               operator = 'eq';
+          }
+          if($operator == '$any' || $operator == '$elemMatch'){
+            predicates.push(new Predicate(key, 'any', Predicate.and(self.getPredicates(value))));
+            continue;
+          }
+          else if($operator == '$all'){
+            predicates.push(new Predicate(key, 'all', Predicate.and(self.getPredicates(value))));
+            continue;
           }
           predicates.push(new Predicate(propName, operator, value));
       }
