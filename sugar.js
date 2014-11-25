@@ -7,7 +7,7 @@
         define(["breeze"], factory);
     } else {
         // <script> tag: use the global `breeze` object
-        factory(breeze);
+        window.sugar = factory(breeze);
     }
 }(function (breeze) {
 
