@@ -59,7 +59,7 @@
             predicates.push(new Predicate(key, 'all', Predicate.and(self.getPredicates(value))));
             continue;
           }
-          predicates.push(new Predicate(propName, operator, value));
+          predicates.push(new Predicate(propName, operator, {value: value, isLiteral: true}));
       }
       return predicates;
     }
