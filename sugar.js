@@ -42,7 +42,7 @@
               predicates.push(Predicate[operator](predicatesInner));
               continue;
           }
-          if (value && typeof value === "object") {
+          if (value && typeof value === "object" && !(value instanceof Date)) {
               var keys = Object.keys(value);
               $operator = keys[0];
               value = value[$operator];
