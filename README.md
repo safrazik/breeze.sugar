@@ -34,18 +34,24 @@ Usage
 -----
 
 ```javascript
-var query = sugar.createQuery('Customers', {
+var query = sugar.createQuery('Customers', 
+   {  // criteria
       'country.code': 'en-US',
       $or: [
         {age: {$gt: 18}},
         {name: {$contains: 'z'}}
       ],
     },
-    {limit: 10, skip: 5, sort: {
-      name: -1
-    }, expand: {
-      country: true
-    }});
+    { // options
+      limit: 10,
+      skip: 5,
+      sort: {
+         name: -1
+      },
+      expand: {
+         country: true
+      }
+   });
 ```
 
 the above code is converted into:
